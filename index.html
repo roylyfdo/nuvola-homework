@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvola Homework Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+    <!-- Top Navigation -->
+    <header class="bg-indigo-700 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-2.5 rounded-xl backdrop-blur-sm">
+                    <i class="fa-solid fa-cloud-arrow-down text-2xl text-sky-200"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">Nuvola Mobile Dashboard</h1>
+                    <p class="text-xs text-indigo-200">Cloud Auto Sync • Daily 3:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <button onclick="fetchCloudData()" class="bg-white text-indigo-700 hover:bg-indigo-50 px-4 py-2 rounded-xl text-sm font-semibold transition shadow-sm flex items-center gap-2">
+                    <i class="fa-solid fa-rotate"></i> Refresh Tasks
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Analytics Overview Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Tasks</p>
+                    <h3 id="statTotal" class="text-3xl font-bold text-slate-700 mt-1">0</h3>
+                </div>
+                <div class="bg-indigo-50 text-indigo-600 p-3 rounded-xl"><i class="fa-solid fa-list-check text-xl"></i></div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">In Progress</p>
+                    <h3 id="statHalfway" class="text-3xl font-bold text-amber-600 mt-1">0</h3>
+                </div>
+                <div class="bg-amber-50 text-amber-600 p-3 rounded-xl"><i class="fa-solid fa-adjust text-xl"></i></div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Completed</p>
+                    <h3 id="statCompleted" class="text-3xl font-bold text-emerald-600 mt-1">0</h3>
+                </div>
+                <div class="bg-emerald-50 text-emerald-600 p-3 rounded-xl"><i class="fa-solid fa-circle-check text-xl"></i></div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Overall Progress</p>
+                    <h3 id="statPercent" class="text-3xl font-bold text-sky-600 mt-1">0%</h3>
+                </div>
+                <div class="bg-sky-50 text-sky-600 p-3 rounded-xl"><i class="fa-solid fa-chart-line text-xl"></i></div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex flex-wrap gap-2 w-full md:w-auto" id="filterTabs">
+                <button onclick="setFilter('all')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-indigo-600 text-white transition shadow-sm">All (<span id="countAll">0</span>)</button>
+                <button onclick="setFilter('not-started')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Not Started (<span id="countNotStarted">0</span>)</button>
+                <button onclick="setFilter('halfway')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Halfway (<span id="countHalfway">0</span>)</button>
+                <button onclick="setFilter('completed')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Completed (<span id="countCompleted">0</span>)</button>
+            </div>
+
+            <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                <select id="subjectFilter" onchange="renderHomework()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-700">
+                    <option value="all">All Subjects</option>
+                    <option value="Italiano">Italiano</option>
+                    <option value="Matematica">Matematica</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Storia">Storia</option>
+                    <option value="Inglese">Inglese</option>
+                    <option value="Scienze">Scienze</option>
+                    <option value="Arte">Arte</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                </select>
+                <button onclick="manualCleanup()" class="bg-rose-50 text-rose-600 hover:bg-rose-100 px-3 py-2 rounded-xl text-sm font-medium transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-broom"></i> Clean Weekend
+                </button>
+            </div>
+        </div>
+
+        <!-- Homework List -->
+        <div id="homeworkList" class="space-y-3"></div>
+
+    </main>
+
+    <script>
+        let homeworkData = [];
+        let currentFilter = 'all';
+
+        async function fetchCloudData() {
+            try {
+                const response = await fetch('homework_data.json?t=' + new Date().getTime());
+                if (response.ok) {
+                    const newFetchedData = await response.json();
+                    
+                    // Smart-Merge with local state
+                    const saved = localStorage.getItem('nuvola_homework_tasks');
+                    let localSavedData = saved ? JSON.parse(saved) : [];
+
+                    newFetchedData.forEach(newItem => {
+                        const existing = localSavedData.find(old => old.note === newItem.note);
+                        if (!existing) {
+                            localSavedData.push(newItem);
+                        }
+                    });
+
+                    homeworkData = localSavedData;
+                    saveAndRender();
+                } else {
+                    initApp();
+                }
+            } catch (e) {
+                initApp();
+            }
+        }
+
+        function initApp() {
+            const saved = localStorage.getItem('nuvola_homework_tasks');
+            if (saved) {
+                homeworkData = JSON.parse(saved);
+                renderHomework();
+            }
+        }
+
+        function saveAndRender() {
+            localStorage.setItem('nuvola_homework_tasks', JSON.stringify(homeworkData));
+            renderHomework();
+        }
+
+        function setStatus(id, newStatus) {
+            const task = homeworkData.find(t => t.id === id);
+            if (task) {
+                task.status = newStatus;
+                saveAndRender();
+            }
+        }
+
+        function editTask(id) {
+            const task = homeworkData.find(t => t.id === id);
+            if (!task) return;
+
+            const newSubject = prompt("Edit Subject name:", task.subject);
+            if (newSubject !== null) task.subject = newSubject.trim();
+
+            const newNote = prompt("Edit assignment note:", task.note);
+            if (newNote !== null) task.note = newNote.trim();
+
+            saveAndRender();
+        }
+
+        function deleteTask(id) {
+            homeworkData = homeworkData.filter(t => t.id !== id);
+            saveAndRender();
+        }
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+            });
+            event.currentTarget.className = "filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-indigo-600 text-white transition shadow-sm";
+            renderHomework();
+        }
+
+        function manualCleanup() {
+            if (confirm("Clear all completed tasks?")) {
+                homeworkData = homeworkData.filter(t => t.status !== 'completed');
+                saveAndRender();
+            }
+        }
+
+        function renderHomework() {
+            const listContainer = document.getElementById('homeworkList');
+            const selectedSubject = document.getElementById('subjectFilter').value;
+
+            const total = homeworkData.length;
+            const halfway = homeworkData.filter(t => t.status === 'halfway').length;
+            const completed = homeworkData.filter(t => t.status === 'completed').length;
+            const notStarted = total - halfway - completed;
+
+            document.getElementById('statTotal').innerText = total;
+            document.getElementById('statHalfway').innerText = halfway;
+            document.getElementById('statCompleted').innerText = completed;
+            document.getElementById('statPercent').innerText = (total > 0 ? Math.round(((completed + halfway * 0.5) / total) * 100) : 0) + '%';
+
+            document.getElementById('countAll').innerText = total;
+            document.getElementById('countNotStarted').innerText = notStarted;
+            document.getElementById('countHalfway').innerText = halfway;
+            document.getElementById('countCompleted').innerText = completed;
+
+            let filtered = homeworkData.filter(t => {
+                if (currentFilter === 'not-started' && t.status !== 'not-started') return false;
+                if (currentFilter === 'halfway' && t.status !== 'halfway') return false;
+                if (currentFilter === 'completed' && t.status !== 'completed') return false;
+                if (selectedSubject !== 'all' && t.subject !== selectedSubject) return false;
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="bg-white p-12 rounded-2xl text-center border border-slate-100">
+                        <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3"></i>
+                        <p class="text-slate-500 font-medium">No homework assignments found.</p>
+                    </div>`;
+                return;
+            }
+
+            listContainer.innerHTML = filtered.map(task => {
+                let statusBadge = task.status === 'completed' ? '<span class="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-lg text-xs font-semibold">Completed</span>' :
+                                  task.status === 'halfway' ? '<span class="bg-amber-50 text-amber-700 px-2.5 py-1 rounded-lg text-xs font-semibold">Halfway (50%)</span>' :
+                                  '<span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-lg text-xs font-semibold">Not Started</span>';
+
+                return `
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition hover:shadow-md">
+                        <div class="space-y-1.5 flex-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-xl text-xs font-bold">${task.subject}</span>
+                                ${statusBadge}
+                            </div>
+                            <p class="text-slate-700 font-medium text-sm whitespace-pre-line mt-2">${task.note}</p>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 self-end md:self-center flex-wrap">
+                            <button onclick="editTask('${task.id}')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-xl text-xs font-medium transition" title="Edit subject or text"><i class="fa-solid fa-pen"></i> Edit</button>
+                            <button onclick="setStatus('${task.id}', 'halfway')" class="px-3 py-1.5 rounded-xl text-xs font-medium ${task.status === 'halfway' ? 'bg-amber-500 text-white font-bold' : 'bg-amber-50 text-amber-700 hover:bg-amber-100'} transition">Halfway</button>
+                            <button onclick="setStatus('${task.id}', 'completed')" class="px-3 py-1.5 rounded-xl text-xs font-medium ${task.status === 'completed' ? 'bg-emerald-600 text-white font-bold' : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'} transition">Done</button>
+                            <button onclick="deleteTask('${task.id}')" class="text-slate-400 hover:text-rose-600 p-2 transition"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.onload = fetchCloudData;
+    </script>
+</body>
+</html>
