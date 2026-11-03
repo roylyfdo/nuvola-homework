@@ -46,12 +46,14 @@ async def fetch_nuvola_homework():
                 const results = [];
                 const knownSubjects = ["ITALIANO", "GEOGRAFIA", "MATEMATICA", "STORIA", "INGLESE", "SCIENZE", "FISICA", "ARTE", "TECNOLOGIA", "ED. CIVICA", "MUSICA"];
                 
-                const cards = document.querySelectorAll('div.bg-white, div.card, div.rounded-2xl, div.shadow-sm');
+                // Target all card elements containing text blocks inside the weekly view
+                const cards = document.querySelectorAll('div');
                 
                 cards.forEach(card => {
                     const text = card.innerText ? card.innerText.trim() : '';
                     
-                    if (text.includes('Compiti assegnati') && text.length > 10 && text.length < 400) {
+                    // Look for blocks that look like homework entries based on Nuvola's structure
+                    if (text.includes('Compiti assegnati') && text.length > 15 && text.length < 800) {
                         let foundSubject = "Generale";
                         const upperText = text.toUpperCase();
                         for (let sub of knownSubjects) {
@@ -61,7 +63,8 @@ async def fetch_nuvola_homework():
                             }
                         }
                         
-                        if (!results.some(r => r.content === text)) {
+                        // Avoid duplicates nested inside parent divs
+                        if (!results.some(r => r.content === text) && !results.some(r => text.includes(r.content) && text.length > r.content.length + 50)) {
                             results.push({
                                 subject: foundSubject,
                                 content: text
