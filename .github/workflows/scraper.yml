@@ -1,0 +1,40 @@
+name: Daily Nuvola Homework Scraper
+
+on:
+  schedule:
+    # Runs daily at 14:00 UTC (3:00 PM CET / Italian time)
+    - cron: '0 14 * * *'
+  workflow_dispatch: # Allows manual trigger anytime from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies & Browsers
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Run Nuvola Scraper
+        env:
+          NUVOLA_USERNAME: ${{ secrets.NUVOLA_USERNAME }}
+          NUVOLA_PASSWORD: ${{ secrets.NUVOLA_PASSWORD }}
+        run: python scraper.py
+
+      - name: Commit & Push Updated Homework Data
+        run: |
+          git config --global user.name "Nuvola Bot"
+          git config --global user.email "bot@github.com"
+          git add homework_data.json
+          git commit -m "Auto-update homework data [skip ci]" || exit 0
+          git push
