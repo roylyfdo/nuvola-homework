@@ -3,309 +3,358 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homework Tracker</title>
+  <title>Homework Dashboard</title>
   <style>
     :root {
-      --bg-color: #f4f6f8;
+      --bg: #f8fafc;
       --card-bg: #ffffff;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --text-main: #1f2937;
-      --text-muted: #6b7280;
-      --border-color: #e5e7eb;
-      --completed-bg: #f3f4f6;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #4f46e5;
+      --primary-light: #e0e7ff;
       --success: #10b981;
+      --success-light: #d1fae5;
+      --warning: #f59e0b;
+      --warning-light: #fef3c7;
+      --danger: #ef4444;
+      --border: #e2e8f0;
     }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
       color: var(--text-main);
       margin: 0;
-      padding: 16px;
+      padding: 20px;
       display: flex;
       justify-content: center;
     }
+
     .app-container {
       width: 100%;
-      max-width: 650px;
+      max-width: 900px;
     }
-    header {
-      margin-bottom: 16px;
+
+    /* Header Nav */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
-    h1 {
+    .top-bar h1 {
       font-size: 1.5rem;
-      margin: 0 0 8px 0;
+      margin: 0;
     }
-    .progress-bar-container {
-      background-color: #e5e7eb;
-      border-radius: 9999px;
-      height: 12px;
-      width: 100%;
-      overflow: hidden;
-      margin-bottom: 6px;
-    }
-    .progress-bar {
-      background-color: var(--success);
-      height: 100%;
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-    .progress-text {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      text-align: right;
-    }
-    .card {
+    .view-toggle {
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      margin-bottom: 16px;
-    }
-    .config-card {
-      border: 1px solid #fde68a;
-      background-color: #fef3c7;
-    }
-    .config-card h2 {
-      font-size: 1rem;
-      margin-top: 0;
-    }
-    input, select, button, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      box-sizing: border-box;
-      font-size: 0.95rem;
-    }
-    button {
-      background-color: var(--primary);
-      color: white;
-      border: none;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      margin-bottom: 0;
     }
-    button:hover {
-      background-color: var(--primary-hover);
-    }
-    .task-input-group {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .task-input-group input {
-      margin: 0;
-    }
-    .btn-secondary {
-      background-color: #9ca3af;
-      width: auto;
-      padding: 8px 12px;
-    }
-    .filters {
+
+    /* Summary Metric Cards */
+    .stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
     }
-    .filters select, .filters input {
-      margin: 0;
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .subject-box {
+    .stat-card {
       background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
       padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-      transition: opacity 0.3s ease;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
     }
-    .subject-box.all-completed {
-      background-color: var(--completed-bg);
-      opacity: 0.75;
-    }
-    .box-header {
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-    }
-    .subject-box.all-completed .box-header {
-      border-bottom-color: var(--text-muted);
-    }
-    .header-subject {
-      font-size: 1.15rem;
+    .stat-label {
+      font-size: 0.75rem;
       font-weight: 700;
-      text-transform: uppercase;
-      margin: 0;
-    }
-    .header-dates {
-      font-size: 0.8rem;
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
       margin-top: 4px;
     }
-    .checklist-item {
+
+    /* Filter Tabs Bar */
+    .filter-bar {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .select-subject {
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      font-size: 0.85rem;
+    }
+
+    /* Homework Cards */
+    .homework-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .card-top {
+      display: flex;
+      gap: 8px;
+      align-items: center;
       margin-bottom: 8px;
     }
-    .checklist-item input[type="checkbox"] {
+    .badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-subject { background: var(--primary-light); color: var(--primary); }
+    .badge-status { text-transform: capitalize; }
+    .status-not-started { background: #f1f5f9; color: #475569; }
+    .status-halfway { background: var(--warning-light); color: var(--warning); }
+    .status-completed { background: var(--success-light); color: var(--success); }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+    .card-dates {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Sub-tasks list */
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+    }
+    .task-item input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      margin-top: 2px;
       cursor: pointer;
     }
-    .checklist-item label {
-      font-size: 0.95rem;
-      cursor: pointer;
-      flex: 1;
-    }
-    .checklist-item.done label {
+    .task-item.done span {
       text-decoration: line-through;
       color: var(--text-muted);
     }
-    .box-actions {
+
+    /* Action Buttons */
+    .card-actions {
       display: flex;
       justify-content: flex-end;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
     }
-    .btn-delete {
-      background-color: #ef4444;
-      font-size: 0.75rem;
-      width: auto;
-      padding: 4px 8px;
+    .btn-action {
+      padding: 6px 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-halfway { background: var(--warning-light); color: #b45309; }
+    .btn-done { background: var(--success); color: white; }
+    .btn-delete { background: #fee2e2; color: var(--danger); }
+
+    /* Parent Section Form */
+    .parent-panel {
+      background: var(--card-bg);
+      border: 2px dashed var(--primary);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: none;
+    }
+    input, select, button {
+      box-sizing: border-box;
     }
   </style>
 </head>
 <body>
 
 <div class="app-container">
-  <header>
+  
+  <div class="top-bar">
     <h1>Homework Tracker</h1>
-    <div class="progress-bar-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-    <div class="progress-text" id="progressText">0% Completed</div>
-  </header>
-
-  <!-- GitHub Credentials Toggle (Saved in LocalStorage per device) -->
-  <div class="card config-card" id="configCard">
-    <h2>GitHub Sync Setup</h2>
-    <label>GitHub Repository (username/repo):</label>
-    <input type="text" id="ghRepo" placeholder="e.g. royly/Nuvola">
-    <label>Personal Access Token (PAT):</label>
-    <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxx">
-    <button onclick="saveConfig()">Save Sync Credentials</button>
+    <button class="view-toggle" id="toggleViewBtn" onclick="toggleParentView()">🔒 Switch to Parent Mode</button>
   </div>
 
-  <!-- Manual Entry Form -->
-  <div class="card">
-    <h2>Add New Homework</h2>
-    <label>Subject:</label>
-    <select id="inputSubject">
-      <option value="Italiano">Italiano</option>
-      <option value="Matematica">Matematica</option>
-      <option value="Geografia">Geografia</option>
-      <option value="Storia">Storia</option>
-      <option value="Inglese">Inglese</option>
-      <option value="Scienze">Scienze</option>
-      <option value="Fisica">Fisica</option>
-      <option value="Arte">Arte</option>
-      <option value="Tecnologia">Tecnologia</option>
-      <option value="Ed. Civica">Ed. Civica</option>
-      <option value="Musica">Musica</option>
-      <option value="Generale">Generale</option>
-    </select>
-
-    <div style="display: flex; gap: 8px;">
-      <div style="flex: 1;">
-        <label>Given Date:</label>
-        <input type="date" id="inputGivenDate">
-      </div>
-      <div style="flex: 1;">
-        <label>Due Date:</label>
-        <input type="date" id="inputDueDate">
-      </div>
-    </div>
-
-    <label>Task Details (Add one or more):</label>
-    <div id="tasksContainer">
-      <div class="task-input-group">
-        <input type="text" class="task-detail-input" placeholder="e.g. Pag 45 es 1-3">
-      </div>
-    </div>
-    <button type="button" class="btn-secondary" onclick="addTaskInput()" style="margin-bottom: 12px;">+ Add Another Sub-Task</button>
-    <button type="button" onclick="addSubjectBox()">Save Homework Box</button>
-  </div>
-
-  <!-- Filter Controls -->
-  <div class="card" style="padding: 12px;">
-    <div class="filters">
+  <!-- Parent Entry Panel (Hidden by default for Student view) -->
+  <div class="parent-panel" id="parentPanel">
+    <h3 style="margin-top:0;">➕ Parent Mode: Add New Homework</h3>
+    
+    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-bottom:10px;">
       <div>
-        <label style="font-size:0.75rem;">Subject Filter</label>
-        <select id="filterSubject" onchange="renderApp()">
-          <option value="ALL">All Subjects</option>
+        <label style="font-size:0.8rem; font-weight:600;">Subject</label>
+        <select id="inputSubject" style="width:100%; padding:8px; margin-top:4px; border-radius:8px; border:1px solid var(--border);">
+          <option value="Italiano">Italiano</option>
+          <option value="Matematica">Matematica</option>
+          <option value="Geografia">Geografia</option>
+          <option value="Storia">Storia</option>
+          <option value="Inglese">Inglese</option>
+          <option value="Scienze">Scienze</option>
+          <option value="Fisica">Fisica</option>
+          <option value="Arte">Arte</option>
+          <option value="Tecnologia">Tecnologia</option>
+          <option value="Ed. Civica">Ed. Civica</option>
+          <option value="Musica">Musica</option>
+          <option value="Generale">Generale</option>
         </select>
       </div>
       <div>
-        <label style="font-size:0.75rem;">Filter Due Date</label>
-        <input type="date" id="filterDueDate" onchange="renderApp()">
+        <label style="font-size:0.8rem; font-weight:600;">Given Date</label>
+        <input type="date" id="inputGivenDate" style="width:100%; padding:8px; margin-top:4px; border-radius:8px; border:1px solid var(--border);">
       </div>
       <div>
-        <label style="font-size:0.75rem;">Filter Given Date</label>
-        <input type="date" id="filterGivenDate" onchange="renderApp()">
+        <label style="font-size:0.8rem; font-weight:600;">Due Date</label>
+        <input type="date" id="inputDueDate" style="width:100%; padding:8px; margin-top:4px; border-radius:8px; border:1px solid var(--border);">
       </div>
+    </div>
+
+    <label style="font-size:0.8rem; font-weight:600;">Task Details:</label>
+    <div id="tasksContainer" style="margin-top:4px;">
+      <input type="text" class="task-detail-input" placeholder="e.g. Grammatica: studiare pag 40, 41" style="width:100%; padding:8px; margin-bottom:8px; border-radius:8px; border:1px solid var(--border);">
+    </div>
+    
+    <div style="display:flex; gap:8px;">
+      <button onclick="addTaskInput()" style="background:#e2e8f0; border:none; padding:8px 12px; border-radius:8px; font-weight:600; cursor:pointer;">+ Sub-task</button>
+      <button onclick="addSubjectBox()" style="background:var(--primary); color:white; border:none; padding:8px 16px; border-radius:8px; font-weight:700; cursor:pointer;">Save Homework</button>
+    </div>
+
+    <hr style="margin:20px 0; border:0; border-top:1px solid var(--border);">
+
+    <details>
+      <summary style="font-size:0.85rem; font-weight:600; cursor:pointer;">GitHub Sync Credentials</summary>
+      <div style="margin-top:8px;">
+        <input type="text" id="ghRepo" placeholder="username/repo" style="padding:6px; margin-right:4px;">
+        <input type="password" id="ghToken" placeholder="Personal Access Token" style="padding:6px; margin-right:4px;">
+        <button onclick="saveConfig()" style="padding:6px 12px;">Save Credentials</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Total Tasks</div>
+      <div class="stat-value" id="statTotal">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="color:var(--warning);">In Progress</div>
+      <div class="stat-value" id="statHalfway" style="color:var(--warning);">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="color:var(--success);">Completed</div>
+      <div class="stat-value" id="statCompleted" style="color:var(--success);">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="color:var(--primary);">Overall Progress</div>
+      <div class="stat-value" id="statProgress" style="color:var(--primary);">0%</div>
     </div>
   </div>
 
-  <!-- List Container -->
+  <!-- Filters & Tabs -->
+  <div class="filter-bar">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="setTab('all', this)">All</button>
+      <button class="tab-btn" onclick="setTab('not-started', this)">Not Started</button>
+      <button class="tab-btn" onclick="setTab('halfway', this)">Halfway</button>
+      <button class="tab-btn" onclick="setTab('completed', this)">Completed</button>
+    </div>
+
+    <select class="select-subject" id="filterSubject" onchange="renderApp()">
+      <option value="ALL">All Subjects</option>
+    </select>
+  </div>
+
+  <!-- Homework List -->
   <div id="homeworkList"></div>
+
 </div>
 
 <script>
   let homeworkData = [];
+  let currentTab = 'all';
+  let isParentMode = false;
   const DATA_FILE = 'homework_data.json';
 
-  // Set default dates to today in form
   document.getElementById('inputGivenDate').valueAsDate = new Date();
   document.getElementById('inputDueDate').valueAsDate = new Date();
 
-  function loadConfig() {
-    const repo = localStorage.getItem('gh_repo') || '';
-    const token = localStorage.getItem('gh_token') || '';
-    document.getElementById('ghRepo').value = repo;
-    document.getElementById('ghToken').value = token;
-    if (repo && token) {
-      document.getElementById('configCard').style.display = 'none';
-    }
+  function toggleParentView() {
+    isParentMode = !isParentMode;
+    document.getElementById('parentPanel').style.display = isParentMode ? 'block' : 'none';
+    document.getElementById('toggleViewBtn').textContent = isParentMode ? '🎓 Switch to Student Mode' : '🔒 Switch to Parent Mode';
+    renderApp();
   }
 
-  function saveConfig() {
-    localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
-    localStorage.setItem('gh_token', document.getElementById('ghToken').value.trim());
-    document.getElementById('configCard').style.display = 'none';
-    fetchFromGitHub();
+  function setTab(tab, btn) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderApp();
   }
 
-  // Add multiple task input lines in the form
   function addTaskInput() {
     const container = document.getElementById('tasksContainer');
-    const div = document.createElement('div');
-    div.className = 'task-input-group';
-    div.innerHTML = `<input type="text" class="task-detail-input" placeholder="Another task detail...">`;
-    container.appendChild(div);
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'task-detail-input';
+    input.placeholder = 'Another task detail...';
+    input.style.cssText = 'width:100%; padding:8px; margin-bottom:8px; border-radius:8px; border:1px solid var(--border);';
+    container.appendChild(input);
   }
 
-  // Save new homework box
   function addSubjectBox() {
     const subject = document.getElementById('inputSubject').value;
     const givenDate = document.getElementById('inputGivenDate').value;
     const dueDate = document.getElementById('inputDueDate').value;
     
-    const taskInputs = document.querySelectorAll('.task-detail-input');
+    const inputs = document.querySelectorAll('.task-detail-input');
     const tasks = [];
-    taskInputs.forEach(input => {
+    inputs.forEach(input => {
       if (input.value.trim() !== '') {
         tasks.push({
           id: 'task-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
@@ -315,35 +364,41 @@
       }
     });
 
-    if (tasks.length === 0) {
-      alert('Please add at least one task detail.');
-      return;
-    }
+    if (tasks.length === 0) return alert('Add at least one detail task.');
 
-    const newBox = {
+    homeworkData.push({
       id: 'box-' + Date.now(),
       subject,
       givenDate,
       dueDate,
+      statusOverride: null, // null, 'halfway', or 'completed'
       tasks
-    };
+    });
 
-    homeworkData.push(newBox);
-    resetForm();
+    document.getElementById('tasksContainer').innerHTML = `<input type="text" class="task-detail-input" placeholder="e.g. Grammatica: studiare pag 40, 41" style="width:100%; padding:8px; margin-bottom:8px; border-radius:8px; border:1px solid var(--border);">`;
     saveAndSync();
   }
 
-  function resetForm() {
-    document.getElementById('tasksContainer').innerHTML = `<div class="task-input-group"><input type="text" class="task-detail-input" placeholder="e.g. Pag 45 es 1-3"></div>`;
+  function setBoxStatus(boxId, status) {
+    const box = homeworkData.find(b => b.id === boxId);
+    if (!box) return;
+    
+    if (status === 'halfway') {
+      box.statusOverride = 'halfway';
+    } else if (status === 'completed') {
+      box.statusOverride = 'completed';
+      box.tasks.forEach(t => t.completed = true);
+    }
+    saveAndSync();
   }
 
-  // Toggle individual task completed state
   function toggleTask(boxId, taskId) {
     const box = homeworkData.find(b => b.id === boxId);
     if (box) {
       const task = box.tasks.find(t => t.id === taskId);
       if (task) {
         task.completed = !task.completed;
+        box.statusOverride = null; // calculate dynamically
         saveAndSync();
       }
     }
@@ -356,124 +411,125 @@
     }
   }
 
-  // Auto Cleanup: Remove completed boxes older than 7 days past due date
-  function runAutoCleanup() {
-    const now = new Date();
-    homeworkData = homeworkData.filter(box => {
-      const allDone = box.tasks.every(t => t.completed);
-      if (!allDone) return true; // keep incomplete tasks
-      
-      const due = new Date(box.dueDate);
-      const diffTime = now - due;
-      const diffDays = diffTime / (1000 * 60 * 60 * 24);
-      
-      // If completed and due date was more than 7 days ago, delete
-      return diffDays <= 7;
-    });
+  function getBoxStatus(box) {
+    if (box.statusOverride) return box.statusOverride;
+    const completedCount = box.tasks.filter(t => t.completed).length;
+    if (completedCount === box.tasks.length && box.tasks.length > 0) return 'completed';
+    if (completedCount > 0) return 'halfway';
+    return 'not-started';
   }
 
   function populateSubjectFilter() {
-    const filterSelect = document.getElementById('filterSubject');
-    const currentSelection = filterSelect.value;
+    const select = document.getElementById('filterSubject');
+    const val = select.value;
     const subjects = [...new Set(homeworkData.map(b => b.subject))];
-    
-    filterSelect.innerHTML = '<option value="ALL">All Subjects</option>';
-    subjects.forEach(sub => {
+    select.innerHTML = '<option value="ALL">All Subjects</option>';
+    subjects.forEach(s => {
       const opt = document.createElement('option');
-      opt.value = sub;
-      opt.textContent = sub;
-      filterSelect.appendChild(opt);
+      opt.value = s; opt.textContent = s;
+      select.appendChild(opt);
     });
-    filterSelect.value = currentSelection;
+    select.value = val;
   }
 
   function renderApp() {
-    runAutoCleanup();
     populateSubjectFilter();
-
     const filterSub = document.getElementById('filterSubject').value;
-    const filterDue = document.getElementById('filterDueDate').value;
-    const filterGiven = document.getElementById('filterGivenDate').value;
 
-    let filtered = homeworkData.filter(box => {
-      if (filterSub !== 'ALL' && box.subject !== filterSub) return false;
-      if (filterDue && box.dueDate !== filterDue) return false;
-      if (filterGiven && box.givenDate !== filterGiven) return false;
-      return true;
-    });
+    // Global Stats Calculation
+    let totalSubTasks = 0;
+    let completedSubTasks = 0;
+    let halfwayBoxes = 0;
+    let completedBoxes = 0;
 
-    // Smart Sort: 
-    // 1. Uncompleted boxes float to top; 100% completed drop to bottom
-    // 2. Secondary sort by Due Date
-    filtered.sort((a, b) => {
-      const aDone = a.tasks.every(t => t.completed);
-      const bDone = b.tasks.every(t => t.completed);
+    homeworkData.forEach(box => {
+      const st = getBoxStatus(box);
+      if (st === 'halfway') halfwayBoxes++;
+      if (st === 'completed') completedBoxes++;
 
-      if (aDone !== bDone) return aDone ? 1 : -1;
-      return new Date(a.dueDate) - new Date(b.dueDate);
-    });
-
-    // Calculate Completion %
-    let totalTasks = 0;
-    let completedTasks = 0;
-    homeworkData.forEach(b => {
-      b.tasks.forEach(t => {
-        totalTasks++;
-        if (t.completed) completedTasks++;
+      box.tasks.forEach(t => {
+        totalSubTasks++;
+        if (t.completed || st === 'completed') completedSubTasks++;
       });
     });
 
-    const percent = totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
-    document.getElementById('progressBar').style.width = percent + '%';
-    document.getElementById('progressText').textContent = `${percent}% Completed (${completedTasks}/${totalTasks} Tasks)`;
+    document.getElementById('statTotal').textContent = homeworkData.length;
+    document.getElementById('statHalfway').textContent = halfwayBoxes;
+    document.getElementById('statCompleted').textContent = completedBoxes;
+    
+    const pct = totalSubTasks === 0 ? 0 : Math.round((completedSubTasks / totalSubTasks) * 100);
+    document.getElementById('statProgress').textContent = pct + '%';
 
-    // Render HTML Cards
-    const listContainer = document.getElementById('homeworkList');
-    listContainer.innerHTML = '';
+    // Filtering
+    let filtered = homeworkData.filter(box => {
+      const st = getBoxStatus(box);
+      if (currentTab !== 'all' && st !== currentTab) return false;
+      if (filterSub !== 'ALL' && box.subject !== filterSub) return false;
+      return true;
+    });
+
+    // Sorting: Not started/Halfway top, Completed bottom
+    filtered.sort((a, b) => {
+      const stA = getBoxStatus(a);
+      const stB = getBoxStatus(b);
+      if (stA === 'completed' && stB !== 'completed') return 1;
+      if (stA !== 'completed' && stB === 'completed') return -1;
+      return new Date(a.dueDate) - new Date(b.dueDate);
+    });
+
+    const list = document.getElementById('homeworkList');
+    list.innerHTML = '';
 
     if (filtered.length === 0) {
-      listContainer.innerHTML = `<div style="text-align:center; color:var(--text-muted); margin-top:20px;">No homework found.</div>`;
+      list.innerHTML = '<div style="text-align:center; color:var(--text-muted); margin-top:30px;">No assignments found.</div>';
       return;
     }
 
     filtered.forEach(box => {
-      const allCompleted = box.tasks.every(t => t.completed);
-      const div = document.createElement('div');
-      div.className = `subject-box ${allCompleted ? 'all-completed' : ''}`;
-      
+      const st = getBoxStatus(box);
+      const card = document.createElement('div');
+      card.className = 'homework-card';
+
       let tasksHTML = '';
-      box.tasks.forEach(task => {
+      box.tasks.forEach(t => {
+        const isDone = t.completed || st === 'completed';
         tasksHTML += `
-          <div class="checklist-item ${task.completed ? 'done' : ''}">
-            <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' : ''} onchange="toggleTask('${box.id}', '${task.id}')">
-            <label for="${task.id}">${task.text}</label>
+          <div class="task-item ${isDone ? 'done' : ''}">
+            <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleTask('${box.id}', '${t.id}')">
+            <span>${t.text}</span>
           </div>
         `;
       });
 
-      div.innerHTML = `
-        <div class="box-header">
-          <div class="header-subject">${box.subject}</div>
-          <div class="header-dates">Given: <b>${box.givenDate}</b> | Due: <b>${box.dueDate}</b></div>
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="badge badge-subject">${box.subject}</span>
+          <span class="badge badge-status status-${st}">${st.replace('-', ' ')}</span>
         </div>
-        <div class="checklist-container">
-          ${tasksHTML}
-        </div>
-        <div class="box-actions">
-          <button class="btn-delete" onclick="deleteBox('${box.id}')">Delete Box</button>
+        <div class="card-title">Compiti assegnati (${box.subject})</div>
+        <div class="card-dates">Given: ${box.givenDate} | Due: <b>${box.dueDate}</b></div>
+        <div>${tasksHTML}</div>
+        <div class="card-actions">
+          <button class="btn-action btn-halfway" onclick="setBoxStatus('${box.id}', 'halfway')">Halfway</button>
+          <button class="btn-action btn-done" onclick="setBoxStatus('${box.id}', 'completed')">Done</button>
+          ${isParentMode ? `<button class="btn-action btn-delete" onclick="deleteBox('${box.id}')">🗑️</button>` : ''}
         </div>
       `;
 
-      listContainer.appendChild(div);
+      list.appendChild(card);
     });
   }
 
-  // --- GITHUB SYNC LOGIC ---
-  let fileSha = '';
+  // GitHub API integration
+  function saveConfig() {
+    localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
+    localStorage.setItem('gh_token', document.getElementById('ghToken').value.trim());
+    fetchFromGitHub();
+  }
 
   async function fetchFromGitHub() {
-    const repo = localStorage.getItem('gh_repo');
-    const token = localStorage.getItem('gh_token');
+    const repo = localStorage.getItem('gh_repo') || document.getElementById('ghRepo').value.trim();
+    const token = localStorage.getItem('gh_token') || document.getElementById('ghToken').value.trim();
     if (!repo || !token) return;
 
     try {
@@ -482,52 +538,39 @@
       });
       if (res.ok) {
         const data = await res.json();
-        fileSha = data.sha;
         const decoded = decodeURIComponent(escape(atob(data.content)));
         homeworkData = JSON.parse(decoded);
         renderApp();
       }
-    } catch (e) {
-      console.error('GitHub fetch error', e);
-    }
+    } catch(e) {}
   }
 
   async function saveAndSync() {
     renderApp();
-    const repo = localStorage.getItem('gh_repo');
-    const token = localStorage.getItem('gh_token');
+    const repo = localStorage.getItem('gh_repo') || document.getElementById('ghRepo').value.trim();
+    const token = localStorage.getItem('gh_token') || document.getElementById('ghToken').value.trim();
     if (!repo || !token) return;
 
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify(homeworkData, null, 2))));
-
     try {
-      const body = {
-        message: 'Update homework data',
-        content: content
-      };
-      if (fileSha) body.sha = fileSha;
-
-      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${DATA_FILE}`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `token ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
+      const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${DATA_FILE}`, {
+        headers: { 'Authorization': `token ${token}` }
       });
-      if (res.ok) {
-        const result = await res.json();
-        fileSha = result.content.sha;
+      let sha = '';
+      if (getRes.ok) {
+        const data = await getRes.json();
+        sha = data.sha;
       }
-    } catch (e) {
-      console.error('GitHub save error', e);
-    }
+
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(homeworkData, null, 2))));
+      await fetch(`https://api.github.com/repos/${repo}/contents/${DATA_FILE}`, {
+        method: 'PUT',
+        headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'Update homework status', content, sha })
+      });
+    } catch(e) {}
   }
 
-  // Initial Boot
-  loadConfig();
   fetchFromGitHub();
 </script>
-
 </body>
 </html>
