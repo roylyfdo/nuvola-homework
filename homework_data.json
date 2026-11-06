@@ -6,13 +6,8 @@
     "dueDate": "2026-11-09",
     "tasks": [
       {
-        "id": "task-1793983004023-1k1a",
-        "text": "Ripasso, studiare fino a pag 32.",
-        "completed": false
-      },
-      {
-        "id": "task-1793983004024-abfj",
-        "text": "Esercizi sul quaderno.",
+        "id": "task-1793926338843-wfhe",
+        "text": "Ripasso, studiare fino a pag 32. Esercizi sul quaderno.",
         "completed": false
       }
     ],
@@ -122,7 +117,7 @@
       {
         "id": "task-1793969188702-m5wc",
         "text": "Aritmetica es 150-152-153-158-163-164 della scheda allegata",
-        "completed": false
+        "completed": true
       }
     ]
   },
@@ -135,19 +130,6 @@
       {
         "id": "task-1793973564337-xmf4",
         "text": "Geometria da pg. 109 es. 91-108-111--118- 77 pg. 108",
-        "completed": false
-      }
-    ]
-  },
-  {
-    "id": "box-1793982956601",
-    "subject": "Arte",
-    "givenDate": "2026-11-06",
-    "dueDate": "2026-11-13",
-    "tasks": [
-      {
-        "id": "task-1793982956601-x8ue",
-        "text": "Condivisi nella classe virtuale: infografica sul metodo di studio, slides relative all'argomento trattato, videolezione e immagini dello schema iniziale sviluppato in classe. Realizzare il compito condiviso in classroom relativo alla strutturazione minima di una infografica usando gli strumenti di base di Disegni (di cui sono stati forniti tutorial operativi.",
         "completed": false
       }
     ]
