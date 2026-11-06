@@ -18,7 +18,7 @@
     "subject": "Italiano",
     "givenDate": "2026-11-03",
     "dueDate": "2026-11-10",
-    "statusOverride": null,
+    "statusOverride": "halfway",
     "tasks": [
       {
         "id": "task-1793927456380-ik4r",
