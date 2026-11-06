@@ -23,7 +23,7 @@
       {
         "id": "task-1793927456380-ik4r",
         "text": "Grammatica: studiare pag 44, 45,",
-        "completed": true
+        "completed": false
       },
       {
         "id": "task-1793927456380-25nd",
@@ -38,7 +38,7 @@
       {
         "id": "task-1793927456380-b8vz",
         "text": "Antologia: ripasso da pag 12 a pag 19 e pag 32, 33.",
-        "completed": false
+        "completed": true
       }
     ]
   },
