@@ -41,5 +41,39 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1793927627924",
+    "subject": "Tecnologia",
+    "givenDate": "2026-11-03",
+    "dueDate": "2026-11-10",
+    "statusOverride": null,
+    "tasks": [
+      {
+        "id": "task-1793927627924-dkkc",
+        "text": "Terminare il rifacimento della verifica",
+        "completed": false
+      },
+      {
+        "id": "task-1793927627924-ip09",
+        "text": "Terminare o colorare (solo se siglato) il primo modulo ed eseguire il modulo n.38 pag35.",
+        "completed": false
+      },
+      {
+        "id": "task-1793927627924-yz50",
+        "text": "Studiare pag.10 e ripassare da pag.1 a 4.",
+        "completed": false
+      },
+      {
+        "id": "task-1793927627924-dft5",
+        "text": "Studiare la definizione ricopiata sul quaderno.",
+        "completed": false
+      },
+      {
+        "id": "task-1793927627924-gazl",
+        "text": "Leggere fine pag.10 e 11 e sottolineare",
+        "completed": false
+      }
+    ]
   }
 ]
