@@ -35,7 +35,6 @@
       max-width: 900px;
     }
 
-    /* Header Nav */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -56,7 +55,6 @@
       cursor: pointer;
     }
 
-    /* Summary Metric Cards */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -86,7 +84,6 @@
       margin-top: 4px;
     }
 
-    /* Filter Tabs Bar */
     .filter-bar {
       display: flex;
       justify-content: space-between;
@@ -114,7 +111,11 @@
       color: white;
       border-color: var(--primary);
     }
-    .select-subject {
+    .filter-inputs {
+      display: flex;
+      gap: 8px;
+    }
+    .select-filter {
       padding: 8px 12px;
       border-radius: 12px;
       border: 1px solid var(--border);
@@ -122,7 +123,6 @@
       font-size: 0.85rem;
     }
 
-    /* Homework Cards */
     .homework-card {
       background: var(--card-bg);
       border-radius: 16px;
@@ -160,7 +160,6 @@
       margin-bottom: 12px;
     }
 
-    /* Sub-tasks list */
     .task-item {
       display: flex;
       align-items: center;
@@ -177,7 +176,6 @@
       color: var(--text-muted);
     }
 
-    /* Action Buttons */
     .card-actions {
       display: flex;
       justify-content: flex-end;
@@ -194,11 +192,10 @@
       font-weight: 700;
       cursor: pointer;
     }
-    .btn-halfway { background: var(--warning-light); color: #b45309; }
     .btn-done { background: var(--success); color: white; }
+    .btn-edit { background: var(--primary-light); color: var(--primary); }
     .btn-delete { background: #fee2e2; color: var(--danger); }
 
-    /* Parent Section Form */
     .parent-panel {
       background: var(--card-bg);
       border: 2px dashed var(--primary);
@@ -221,9 +218,10 @@
     <button class="view-toggle" id="toggleViewBtn" onclick="toggleParentView()">🔒 Switch to Parent Mode</button>
   </div>
 
-  <!-- Parent Entry Panel (Hidden by default for Student view) -->
+  <!-- Parent Entry Panel -->
   <div class="parent-panel" id="parentPanel">
-    <h3 style="margin-top:0;">➕ Parent Mode: Add New Homework</h3>
+    <h3 id="panelTitle" style="margin-top:0;">➕ Parent Mode: Add New Homework</h3>
+    <input type="hidden" id="editBoxId" value="">
     
     <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-bottom:10px;">
       <div>
@@ -260,7 +258,8 @@
     
     <div style="display:flex; gap:8px;">
       <button onclick="addTaskInput()" style="background:#e2e8f0; border:none; padding:8px 12px; border-radius:8px; font-weight:600; cursor:pointer;">+ Sub-task</button>
-      <button onclick="addSubjectBox()" style="background:var(--primary); color:white; border:none; padding:8px 16px; border-radius:8px; font-weight:700; cursor:pointer;">Save Homework</button>
+      <button id="saveBtn" onclick="saveSubjectBox()" style="background:var(--primary); color:white; border:none; padding:8px 16px; border-radius:8px; font-weight:700; cursor:pointer;">Save Homework</button>
+      <button id="cancelEditBtn" onclick="resetForm()" style="background:#cbd5e1; color:#334155; border:none; padding:8px 16px; border-radius:8px; font-weight:700; cursor:pointer; display:none;">Cancel</button>
     </div>
 
     <hr style="margin:20px 0; border:0; border-top:1px solid var(--border);">
@@ -268,9 +267,9 @@
     <details>
       <summary style="font-size:0.85rem; font-weight:600; cursor:pointer;">GitHub Sync Credentials</summary>
       <div style="margin-top:8px;">
-        <input type="text" id="ghRepo" placeholder="username/repo" style="padding:6px; margin-right:4px;">
-        <input type="password" id="ghToken" placeholder="Personal Access Token" style="padding:6px; margin-right:4px;">
-        <button onclick="saveConfig()" style="padding:6px 12px;">Save Credentials</button>
+        <input type="text" id="ghRepo" placeholder="username/repo" style="padding:6px; margin-right:4px; width:40%;">
+        <input type="password" id="ghToken" placeholder="Personal Access Token" style="padding:6px; margin-right:4px; width:40%;">
+        <button onclick="saveConfig()" style="padding:6px 12px; width:auto;">Save Credentials</button>
       </div>
     </details>
   </div>
@@ -304,9 +303,13 @@
       <button class="tab-btn" onclick="setTab('completed', this)">Completed</button>
     </div>
 
-    <select class="select-subject" id="filterSubject" onchange="renderApp()">
-      <option value="ALL">All Subjects</option>
-    </select>
+    <div class="filter-inputs">
+      <select class="select-filter" id="filterSubject" onchange="renderApp()">
+        <option value="ALL">All Subjects</option>
+      </select>
+      <input type="date" class="select-filter" id="filterDueDate" onchange="renderApp()">
+      <button onclick="clearFilters()" style="padding:6px 10px; background:#e2e8f0; border:none; border-radius:8px; cursor:pointer; font-size:0.75rem;">Reset Filter</button>
+    </div>
   </div>
 
   <!-- Homework List -->
@@ -337,17 +340,25 @@
     renderApp();
   }
 
-  function addTaskInput() {
+  function clearFilters() {
+    document.getElementById('filterSubject').value = 'ALL';
+    document.getElementById('filterDueDate').value = '';
+    renderApp();
+  }
+
+  function addTaskInput(textVal = '') {
     const container = document.getElementById('tasksContainer');
     const input = document.createElement('input');
     input.type = 'text';
     input.className = 'task-detail-input';
+    input.value = textVal;
     input.placeholder = 'Another task detail...';
     input.style.cssText = 'width:100%; padding:8px; margin-bottom:8px; border-radius:8px; border:1px solid var(--border);';
     container.appendChild(input);
   }
 
-  function addSubjectBox() {
+  function saveSubjectBox() {
+    const editId = document.getElementById('editBoxId').value;
     const subject = document.getElementById('inputSubject').value;
     const givenDate = document.getElementById('inputGivenDate').value;
     const dueDate = document.getElementById('inputDueDate').value;
@@ -366,30 +377,61 @@
 
     if (tasks.length === 0) return alert('Add at least one detail task.');
 
-    homeworkData.push({
-      id: 'box-' + Date.now(),
-      subject,
-      givenDate,
-      dueDate,
-      statusOverride: null, // null, 'halfway', or 'completed'
-      tasks
-    });
+    if (editId) {
+      // Edit existing box
+      const box = homeworkData.find(b => b.id === editId);
+      if (box) {
+        box.subject = subject;
+        box.givenDate = givenDate;
+        box.dueDate = dueDate;
+        // preserve old task completion states if text matches or map them cleanly
+        box.tasks = tasks;
+      }
+    } else {
+      // Create new box
+      homeworkData.push({
+        id: 'box-' + Date.now(),
+        subject,
+        givenDate,
+        dueDate,
+        tasks
+      });
+    }
 
-    document.getElementById('tasksContainer').innerHTML = `<input type="text" class="task-detail-input" placeholder="e.g. Grammatica: studiare pag 40, 41" style="width:100%; padding:8px; margin-bottom:8px; border-radius:8px; border:1px solid var(--border);">`;
+    resetForm();
     saveAndSync();
   }
 
-  function setBoxStatus(boxId, status) {
+  function editBox(boxId) {
     const box = homeworkData.find(b => b.id === boxId);
     if (!box) return;
-    
-    if (status === 'halfway') {
-      box.statusOverride = 'halfway';
-    } else if (status === 'completed') {
-      box.statusOverride = 'completed';
-      box.tasks.forEach(t => t.completed = true);
+
+    if (!isParentMode) {
+      toggleParentView(); // open parent mode if closed
     }
-    saveAndSync();
+
+    document.getElementById('editBoxId').value = box.id;
+    document.getElementById('inputSubject').value = box.subject;
+    document.getElementById('inputGivenDate').value = box.givenDate;
+    document.getElementById('inputDueDate').value = box.dueDate;
+    document.getElementById('panelTitle').textContent = '✏️ Edit Homework Box';
+    document.getElementById('saveBtn').textContent = 'Update Homework';
+    document.getElementById('cancelEditBtn').style.display = 'inline-block';
+
+    const container = document.getElementById('tasksContainer');
+    container.innerHTML = '';
+    box.tasks.forEach(t => addTaskInput(t.text));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetForm() {
+    document.getElementById('editBoxId').value = '';
+    document.getElementById('panelTitle').textContent = '➕ Parent Mode: Add New Homework';
+    document.getElementById('saveBtn').textContent = 'Save Homework';
+    document.getElementById('cancelEditBtn').style.display = 'none';
+    document.getElementById('inputGivenDate').valueAsDate = new Date();
+    document.getElementById('inputDueDate').valueAsDate = new Date();
+    document.getElementById('tasksContainer').innerHTML = `<input type="text" class="task-detail-input" placeholder="e.g. Grammatica: studiare pag 40, 41" style="width:100%; padding:8px; margin-bottom:8px; border-radius:8px; border:1px solid var(--border);">`;
   }
 
   function toggleTask(boxId, taskId) {
@@ -398,7 +440,6 @@
       const task = box.tasks.find(t => t.id === taskId);
       if (task) {
         task.completed = !task.completed;
-        box.statusOverride = null; // calculate dynamically
         saveAndSync();
       }
     }
@@ -412,9 +453,9 @@
   }
 
   function getBoxStatus(box) {
-    if (box.statusOverride) return box.statusOverride;
+    if (!box.tasks || box.tasks.length === 0) return 'not-started';
     const completedCount = box.tasks.filter(t => t.completed).length;
-    if (completedCount === box.tasks.length && box.tasks.length > 0) return 'completed';
+    if (completedCount === box.tasks.length) return 'completed';
     if (completedCount > 0) return 'halfway';
     return 'not-started';
   }
@@ -435,8 +476,8 @@
   function renderApp() {
     populateSubjectFilter();
     const filterSub = document.getElementById('filterSubject').value;
+    const filterDue = document.getElementById('filterDueDate').value;
 
-    // Global Stats Calculation
     let totalSubTasks = 0;
     let completedSubTasks = 0;
     let halfwayBoxes = 0;
@@ -449,7 +490,7 @@
 
       box.tasks.forEach(t => {
         totalSubTasks++;
-        if (t.completed || st === 'completed') completedSubTasks++;
+        if (t.completed) completedSubTasks++;
       });
     });
 
@@ -460,15 +501,15 @@
     const pct = totalSubTasks === 0 ? 0 : Math.round((completedSubTasks / totalSubTasks) * 100);
     document.getElementById('statProgress').textContent = pct + '%';
 
-    // Filtering
     let filtered = homeworkData.filter(box => {
       const st = getBoxStatus(box);
       if (currentTab !== 'all' && st !== currentTab) return false;
       if (filterSub !== 'ALL' && box.subject !== filterSub) return false;
+      if (filterDue && box.dueDate !== filterDue) return false;
       return true;
     });
 
-    // Sorting: Not started/Halfway top, Completed bottom
+    // Sorting: Uncompleted / halfway boxes stay on top, fully completed boxes drop to bottom
     filtered.sort((a, b) => {
       const stA = getBoxStatus(a);
       const stB = getBoxStatus(b);
@@ -492,10 +533,9 @@
 
       let tasksHTML = '';
       box.tasks.forEach(t => {
-        const isDone = t.completed || st === 'completed';
         tasksHTML += `
-          <div class="task-item ${isDone ? 'done' : ''}">
-            <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleTask('${box.id}', '${t.id}')">
+          <div class="task-item ${t.completed ? 'done' : ''}">
+            <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTask('${box.id}', '${t.id}')">
             <span>${t.text}</span>
           </div>
         `;
@@ -510,9 +550,10 @@
         <div class="card-dates">Given: ${box.givenDate} | Due: <b>${box.dueDate}</b></div>
         <div>${tasksHTML}</div>
         <div class="card-actions">
-          <button class="btn-action btn-halfway" onclick="setBoxStatus('${box.id}', 'halfway')">Halfway</button>
-          <button class="btn-action btn-done" onclick="setBoxStatus('${box.id}', 'completed')">Done</button>
-          ${isParentMode ? `<button class="btn-action btn-delete" onclick="deleteBox('${box.id}')">🗑️</button>` : ''}
+          ${isParentMode ? `
+            <button class="btn-action btn-edit" onclick="editBox('${box.id}')">✏️ Edit</button>
+            <button class="btn-action btn-delete" onclick="deleteBox('${box.id}')">🗑️ Delete</button>
+          ` : ''}
         </div>
       `;
 
@@ -520,7 +561,6 @@
     });
   }
 
-  // GitHub API integration
   function saveConfig() {
     localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
     localStorage.setItem('gh_token', document.getElementById('ghToken').value.trim());
@@ -565,10 +605,14 @@
       await fetch(`https://api.github.com/repos/${repo}/contents/${DATA_FILE}`, {
         method: 'PUT',
         headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: 'Update homework status', content, sha })
+        body: JSON.stringify({ message: 'Update homework data', content, sha })
       });
     } catch(e) {}
   }
+
+  // Load saved creds if present in localstorage
+  if (localStorage.getItem('gh_repo')) document.getElementById('ghRepo').value = localStorage.getItem('gh_repo');
+  if (localStorage.getItem('gh_token')) document.getElementById('ghToken').value = localStorage.getItem('gh_token');
 
   fetchFromGitHub();
 </script>
