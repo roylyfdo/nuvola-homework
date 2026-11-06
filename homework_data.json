@@ -12,29 +12,5 @@
       }
     ],
     "statusOverride": null
-  },
-  {
-    "id": "box-1793927214988",
-    "subject": "Italiano",
-    "givenDate": "2026-11-03",
-    "dueDate": "2026-11-10",
-    "statusOverride": null,
-    "tasks": [
-      {
-        "id": "task-1793927214988-4kbk",
-        "text": "Grammatica: studiare pag 44, 45,",
-        "completed": false
-      },
-      {
-        "id": "task-1793927214988-pmg3",
-        "text": "Terminare lo schema sulla divisione in sillabe (di pag 40, 41),",
-        "completed": false
-      },
-      {
-        "id": "task-1793927214988-09ir",
-        "text": "Esercizi pag 48, 49 n 1, 2, 5",
-        "completed": false
-      }
-    ]
   }
 ]
