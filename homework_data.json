@@ -107,5 +107,18 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1793969188704",
+    "subject": "Matematica",
+    "givenDate": "2026-11-06",
+    "dueDate": "2026-11-12",
+    "tasks": [
+      {
+        "id": "task-1793969188702-m5wc",
+        "text": "Aritmetica es 150-152-153-158-163-164 della scheda allegata",
+        "completed": false
+      }
+    ]
   }
 ]
