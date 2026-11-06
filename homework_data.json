@@ -120,5 +120,18 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1793973564338",
+    "subject": "Matematica",
+    "givenDate": "2026-11-06",
+    "dueDate": "2026-11-10",
+    "tasks": [
+      {
+        "id": "task-1793973564337-xmf4",
+        "text": "Geometria da pg. 109 es. 91-108-111--118- 77 pg. 108",
+        "completed": false
+      }
+    ]
   }
 ]
