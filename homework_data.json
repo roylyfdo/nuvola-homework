@@ -18,12 +18,12 @@
     "subject": "Italiano",
     "givenDate": "2026-11-03",
     "dueDate": "2026-11-10",
-    "statusOverride": "halfway",
+    "statusOverride": null,
     "tasks": [
       {
         "id": "task-1793927456380-ik4r",
         "text": "Grammatica: studiare pag 44, 45,",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1793927456380-25nd",
