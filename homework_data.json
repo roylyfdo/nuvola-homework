@@ -6,8 +6,13 @@
     "dueDate": "2026-11-09",
     "tasks": [
       {
-        "id": "task-1793926338843-wfhe",
-        "text": "Ripasso, studiare fino a pag 32. Esercizi sul quaderno.",
+        "id": "task-1793983004023-1k1a",
+        "text": "Ripasso, studiare fino a pag 32.",
+        "completed": false
+      },
+      {
+        "id": "task-1793983004024-abfj",
+        "text": "Esercizi sul quaderno.",
         "completed": false
       }
     ],
