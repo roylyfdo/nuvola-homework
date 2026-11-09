@@ -182,5 +182,23 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794228397855",
+    "subject": "Matematica",
+    "givenDate": "2026-11-09",
+    "dueDate": "2026-11-13",
+    "tasks": [
+      {
+        "id": "task-1794228397855-1ami",
+        "text": "Studiate sul qsd e sil libro pg. 31 rispondi domande.",
+        "completed": false
+      },
+      {
+        "id": "task-1794228397855-brw7",
+        "text": "Pg 24 pg 44 domande 1-2-3-4",
+        "completed": false
+      }
+    ]
   }
 ]
