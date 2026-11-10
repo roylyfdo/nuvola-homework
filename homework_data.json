@@ -236,5 +236,23 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794315148748",
+    "subject": "Italiano",
+    "givenDate": "2026-11-10",
+    "dueDate": "2026-11-17",
+    "tasks": [
+      {
+        "id": "task-1794315148746-x2iv",
+        "text": "Antologia: 1)Concludi lo storyboard della lettura pag 34 \"Una festa cinese\" iniziato in classe seguendo le indicazioni spiegate (il compito è concluso anche colorando, scrivendo la partedel testo a penna e incorniciando i rettangoli con tratto pen sottile nero o altro pennarello CON PUNTA SOTTILE )",
+        "completed": false
+      },
+      {
+        "id": "task-1794315148748-qt0l",
+        "text": "2)sul quaderno di antologia spiega con le tue parole come hai fatto a realizzare uno storyboard, quali procedimento hai utilizzato, quali strumenti, a cosa serve, aggiungi un tuo commento personale sul lavoro svolto (se ti è piaciuto, che difficoltà hai incontrato...)",
+        "completed": false
+      }
+    ]
   }
 ]
