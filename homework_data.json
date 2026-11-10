@@ -14,24 +14,6 @@
     ]
   },
   {
-    "id": "box-1793969080879",
-    "subject": "Inglese",
-    "givenDate": "2026-11-06",
-    "dueDate": "2026-11-09",
-    "tasks": [
-      {
-        "id": "task-1793969080879-uijc",
-        "text": "leggi e copia in functions pag. 38 + es. 2,",
-        "completed": true
-      },
-      {
-        "id": "task-1793969080879-h5sn",
-        "text": "fai es. 3, 4 e 5 di pag.39",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1793969188704",
     "subject": "Matematica",
     "givenDate": "2026-11-06",
