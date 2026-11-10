@@ -27,19 +27,6 @@
     ]
   },
   {
-    "id": "box-1793990467063",
-    "subject": "Italiano",
-    "givenDate": "2026-11-06",
-    "dueDate": "2026-11-09",
-    "tasks": [
-      {
-        "id": "task-1793990467063-qghg",
-        "text": "Chi non ha ancora prodotto le copertine dei due quaderni, eseguire secondo quanto spiegato in classe",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1793990549720",
     "subject": "Arte",
     "givenDate": "2026-11-06",
