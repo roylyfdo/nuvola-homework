@@ -1,19 +1,5 @@
 [
   {
-    "id": "box-1793926338843",
-    "subject": "Storia",
-    "givenDate": "2026-11-05",
-    "dueDate": "2026-11-09",
-    "tasks": [
-      {
-        "id": "task-1793926338843-wfhe",
-        "text": "Ripasso, studiare fino a pag 32. Esercizi sul quaderno.",
-        "completed": true
-      }
-    ],
-    "statusOverride": null
-  },
-  {
     "id": "box-1793927668556",
     "subject": "Geografia",
     "givenDate": "2026-11-04",
