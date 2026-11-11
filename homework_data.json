@@ -151,5 +151,18 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794400890180",
+    "subject": "Tecnologia",
+    "givenDate": "2026-11-10",
+    "dueDate": "2026-11-17",
+    "tasks": [
+      {
+        "id": "task-1794400890180-n882",
+        "text": "Controllare le correzioni sul quaderno, ridisegnare le parti errate ed eventualmente colorare (solo se siglato).",
+        "completed": false
+      }
+    ]
   }
 ]
