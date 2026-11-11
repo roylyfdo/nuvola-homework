@@ -9,7 +9,7 @@
       {
         "id": "task-1793927668556-94d5",
         "text": "Ripassare da pag 22 a pag 44.",
-        "completed": true
+        "completed": false
       }
     ]
   },
@@ -58,7 +58,7 @@
       {
         "id": "task-1794228170120-ezkk",
         "text": "Fai gli esercizi della pagina 41",
-        "completed": true
+        "completed": false
       }
     ]
   },
