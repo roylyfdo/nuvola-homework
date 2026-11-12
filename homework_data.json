@@ -148,7 +148,7 @@
       {
         "id": "task-1794488079148-5dvx",
         "text": "fai pag. 289",
-        "completed": false
+        "completed": true
       }
     ]
   },
@@ -197,6 +197,34 @@
       {
         "id": "task-1794488100752-zhu0",
         "text": "(per mercoledì prossimo crea il tuo family tree VEDI CLASSROOM",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "box-1794488265181",
+    "subject": "Italiano",
+    "givenDate": "2026-11-12",
+    "dueDate": "2026-11-17",
+    "tasks": [
+      {
+        "id": "task-1794488265181-627i",
+        "text": "Concludies n1 pag 91 come eseguito in classe sul quaderno (quando non sai qualcosa aiutati con gli strumenti spiegati in classe e che hai a disposizione. RICORDATI: SBAGLIARE FA PARTE DELL'APPRENDIMENTO, MEGLIO SBAGLIARE CHE NON PROVARCI).",
+        "completed": false
+      },
+      {
+        "id": "task-1794488265181-r4ze",
+        "text": "Es n 3,4,5 sul libro.",
+        "completed": false
+      },
+      {
+        "id": "task-1794488265181-yeug",
+        "text": "leggi pag 90",
+        "completed": false
+      },
+      {
+        "id": "task-1794488265181-u3tq",
+        "text": "Studia l'appunto sul quaderno (art. partitivo)",
         "completed": false
       }
     ]
