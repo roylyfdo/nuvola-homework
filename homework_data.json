@@ -187,5 +187,18 @@
         "completed": true
       }
     ]
+  },
+  {
+    "id": "box-1794488100752",
+    "subject": "Inglese",
+    "givenDate": "2026-11-11",
+    "dueDate": "2026-11-18",
+    "tasks": [
+      {
+        "id": "task-1794488100752-zhu0",
+        "text": "(per mercoledì prossimo crea il tuo family tree VEDI CLASSROOM",
+        "completed": false
+      }
+    ]
   }
 ]
