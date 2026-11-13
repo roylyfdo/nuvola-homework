@@ -147,5 +147,28 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794588307214",
+    "subject": "Matematica",
+    "givenDate": "2026-11-13",
+    "dueDate": "2026-11-17",
+    "tasks": [
+      {
+        "id": "task-1794588307212-idra",
+        "text": "Geometria pg. 94-96 es. Pg. 95 - 97",
+        "completed": false
+      },
+      {
+        "id": "task-1794588307214-o2zf",
+        "text": "pg.111 es105-109-124",
+        "completed": false
+      },
+      {
+        "id": "task-1794588307214-orff",
+        "text": "Pg. 95 - 97",
+        "completed": false
+      }
+    ]
   }
 ]
