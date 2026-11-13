@@ -121,24 +121,6 @@
     ]
   },
   {
-    "id": "box-1794400828313",
-    "subject": "Inglese",
-    "givenDate": "2026-11-11",
-    "dueDate": "2026-11-13",
-    "tasks": [
-      {
-        "id": "task-1794488079147-1yw6",
-        "text": "es. 1 e 2 pag. 40, copia la wordlist di pag. 181 in vocabulary e fai pag.182",
-        "completed": true
-      },
-      {
-        "id": "task-1794488079148-5dvx",
-        "text": "fai pag. 289",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1794400890180",
     "subject": "Tecnologia",
     "givenDate": "2026-11-10",
