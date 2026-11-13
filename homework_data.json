@@ -134,5 +134,18 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794573744961",
+    "subject": "Matematica",
+    "givenDate": "2026-11-13",
+    "dueDate": "2026-11-19",
+    "tasks": [
+      {
+        "id": "task-1794573744961-fycb",
+        "text": "Aritmetica:pg 152-153 es. 210-219-222-226 es. 227 e - f-g es. 234-240",
+        "completed": false
+      }
+    ]
   }
 ]
