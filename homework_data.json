@@ -241,5 +241,28 @@
         "completed": true
       }
     ]
+  },
+  {
+    "id": "box-1794573435450",
+    "subject": "Inglese",
+    "givenDate": "2026-11-13",
+    "dueDate": "2026-11-16",
+    "tasks": [
+      {
+        "id": "task-1794573435449-k5l3",
+        "text": "Copia e studia la tabella C di pag. 42 in grammar.",
+        "completed": false
+      },
+      {
+        "id": "task-1794573435450-2fo1",
+        "text": "Fai gli esercizi della pagina.",
+        "completed": false
+      },
+      {
+        "id": "task-1794573435450-x6yk",
+        "text": "Fai es. di pag. 183.",
+        "completed": false
+      }
+    ]
   }
 ]
