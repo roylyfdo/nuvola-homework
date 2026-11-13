@@ -1,19 +1,5 @@
 [
   {
-    "id": "box-1793927668556",
-    "subject": "Geografia",
-    "givenDate": "2026-11-04",
-    "dueDate": "2026-11-11",
-    "statusOverride": null,
-    "tasks": [
-      {
-        "id": "task-1793927668556-94d5",
-        "text": "Ripassare da pag 22 a pag 44.",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1793969188704",
     "subject": "Matematica",
     "givenDate": "2026-11-06",
