@@ -54,24 +54,6 @@
     ]
   },
   {
-    "id": "box-1794315051386",
-    "subject": "Italiano",
-    "givenDate": "2026-11-10",
-    "dueDate": "2026-11-12",
-    "tasks": [
-      {
-        "id": "task-1794315051386-tl4b",
-        "text": "Pag 78-79 es n 1,2,3,7,9.",
-        "completed": true
-      },
-      {
-        "id": "task-1794315051386-uogs",
-        "text": "Studia lo schemino di sintesi sul quaderno (parti variabili e invariabili)",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1794315148748",
     "subject": "Italiano",
     "givenDate": "2026-11-10",
