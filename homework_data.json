@@ -132,19 +132,14 @@
     "dueDate": "2026-11-17",
     "tasks": [
       {
-        "id": "task-1794588307212-idra",
+        "id": "task-1794594965514-j7vn",
         "text": "Geometria pg. 94-96 es. Pg. 95 - 97",
         "completed": false
       },
       {
-        "id": "task-1794588307214-o2zf",
+        "id": "task-1794594965514-yuyp",
         "text": "pg.111 es105-109-124",
         "completed": false
-      },
-      {
-        "id": "task-1794588307214-orff",
-        "text": "Pg. 95 - 97",
-        "completed": true
       }
     ]
   }
