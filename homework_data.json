@@ -216,19 +216,6 @@
     ]
   },
   {
-    "id": "box-1794534815027",
-    "subject": "Matematica",
-    "givenDate": "2026-11-12",
-    "dueDate": "2026-11-13",
-    "tasks": [
-      {
-        "id": "task-1794534815027-6x8b",
-        "text": "Aritmetica:ultime 3 espressione della scheda con esptessioni singole",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1794573435450",
     "subject": "Inglese",
     "givenDate": "2026-11-13",
