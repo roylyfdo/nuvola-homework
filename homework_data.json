@@ -8,12 +8,12 @@
       {
         "id": "task-1794299152881-hk4e",
         "text": "Studiare gli appunti sul quaderno",
-        "completed": true
+        "completed": false
       },
       {
         "id": "task-1794299152881-p5n3",
         "text": "Concludere la linea del tempo in fotocopia e i disegni sugli indicatori (anche colorati), come spiegato in classe",
-        "completed": false
+        "completed": true
       }
     ]
   },
@@ -103,7 +103,7 @@
       {
         "id": "task-1794573435450-2fo1",
         "text": "Fai gli esercizi della pagina.",
-        "completed": true
+        "completed": false
       },
       {
         "id": "task-1794573435450-x6yk",
