@@ -24,13 +24,23 @@
     "dueDate": "2026-11-23",
     "tasks": [
       {
-        "id": "task-1794827795458-qilt",
+        "id": "task-1794830818796-wt6s",
         "text": "Concludi la classificazione delle informazioni come svolto in classe pag 34-35 sul libro.",
         "completed": false
       },
       {
-        "id": "task-1794827795458-ya2r",
+        "id": "task-1794830818796-1qwd",
         "text": "Ripassa il capitolo per interrogazione",
+        "completed": false
+      },
+      {
+        "id": "task-1794830818796-y3fo",
+        "text": "poi trascrivi sul quaderno con le tue parole le informazioni relative agli indicatori delle due pagine,",
+        "completed": false
+      },
+      {
+        "id": "task-1794830818796-1i5q",
+        "text": "PUOI anche trasformnare in una tabella come spiegato in classe",
         "completed": false
       }
     ]
