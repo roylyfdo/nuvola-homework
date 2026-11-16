@@ -31,7 +31,7 @@
       {
         "id": "task-1794830818796-1qwd",
         "text": "Ripassa il capitolo per interrogazione",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1794830818796-y3fo",
@@ -41,7 +41,7 @@
       {
         "id": "task-1794830818796-1i5q",
         "text": "PUOI anche trasformnare in una tabella come spiegato in classe",
-        "completed": false
+        "completed": true
       }
     ]
   }
