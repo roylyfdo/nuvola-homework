@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "box-1794827745170",
+    "subject": "Inglese",
+    "givenDate": "2026-11-16",
+    "dueDate": "2026-11-18",
+    "tasks": [
+      {
+        "id": "task-1794827745170-95j3",
+        "text": "Copia la tabella D di pag. 181 in Grammar e i punti 3 e 4 sotto.",
+        "completed": false
+      },
+      {
+        "id": "task-1794827745170-w7u7",
+        "text": "Fai gli esercizi 15, 16, 18 e 20 di pag. 43.",
+        "completed": false
+      }
+    ]
+  }
+]
