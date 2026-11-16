@@ -16,5 +16,23 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794827795458",
+    "subject": "Storia",
+    "givenDate": "2026-11-16",
+    "dueDate": "2026-11-23",
+    "tasks": [
+      {
+        "id": "task-1794827795458-qilt",
+        "text": "Concludi la classificazione delle informazioni come svolto in classe pag 34-35 sul libro.",
+        "completed": false
+      },
+      {
+        "id": "task-1794827795458-ya2r",
+        "text": "Ripassa il capitolo per interrogazione",
+        "completed": false
+      }
+    ]
   }
 ]
