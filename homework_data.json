@@ -36,12 +36,25 @@
       {
         "id": "task-1794830818796-y3fo",
         "text": "poi trascrivi sul quaderno con le tue parole le informazioni relative agli indicatori delle due pagine,",
-        "completed": true
+        "completed": false
       },
       {
         "id": "task-1794830818796-1i5q",
         "text": "PUOI anche trasformnare in una tabella come spiegato in classe",
-        "completed": true
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "box-1794927374256",
+    "subject": "Italiano",
+    "givenDate": "2026-11-17",
+    "dueDate": "2026-11-19",
+    "tasks": [
+      {
+        "id": "task-1794927374256-mty3",
+        "text": "Concludi la correzione del test gramm iniziata in classe come spiegato",
+        "completed": false
       }
     ]
   }
