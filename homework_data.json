@@ -65,8 +65,13 @@
     "dueDate": "2026-11-24",
     "tasks": [
       {
-        "id": "task-1794927424251-rro4",
-        "text": "Studiare le caratteristiche di fiaba e favola (appunti e fotocopia). Seguendo le funzioni di Propp, scegli una fiaba a tuo piacere e sul quaderno descrivi le funzioni e i personaggi come spiegato in classe",
+        "id": "task-1794927528857-lavt",
+        "text": "Studiare le caratteristiche di fiaba e favola (appunti e fotocopia).",
+        "completed": false
+      },
+      {
+        "id": "task-1794927528861-fjkq",
+        "text": "Seguendo le funzioni di Propp, scegli una fiaba a tuo piacere e sul quaderno descrivi le funzioni e i personaggi come spiegato in classe",
         "completed": false
       }
     ]
