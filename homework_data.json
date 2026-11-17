@@ -70,5 +70,23 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1794927473734",
+    "subject": "Tecnologia",
+    "givenDate": "2026-11-17",
+    "dueDate": "2026-11-24",
+    "tasks": [
+      {
+        "id": "task-1794927473734-thu4",
+        "text": "Eseguire moduli n. 4 e 5 pag.20 su classroom",
+        "completed": false
+      },
+      {
+        "id": "task-1794927473734-2s8u",
+        "text": "Studiare pag.11, 14 e metà di 15 e ripassare da pag.1 per inizio interrogazioni.",
+        "completed": false
+      }
+    ]
   }
 ]
