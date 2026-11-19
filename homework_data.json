@@ -28,19 +28,6 @@
     ]
   },
   {
-    "id": "box-1794927374256",
-    "subject": "Italiano",
-    "givenDate": "2026-11-17",
-    "dueDate": "2026-11-19",
-    "tasks": [
-      {
-        "id": "task-1794927374256-mty3",
-        "text": "Concludi la correzione del test gramm iniziata in classe come spiegato",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1794927424251",
     "subject": "Italiano",
     "givenDate": "2026-11-17",
