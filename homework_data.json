@@ -121,5 +121,23 @@
         "completed": true
       }
     ]
+  },
+  {
+    "id": "box-1795099610982",
+    "subject": "Matematica",
+    "givenDate": "2026-11-19",
+    "dueDate": "2026-11-20",
+    "tasks": [
+      {
+        "id": "task-1795099610979-jz6a",
+        "text": "Aritmetica pg. 118 quaderno es 1-2-3",
+        "completed": false
+      },
+      {
+        "id": "task-1795099610982-229b",
+        "text": "pg. 119 pg. 120 es 1-2-3-4 pg. 121",
+        "completed": false
+      }
+    ]
   }
 ]
