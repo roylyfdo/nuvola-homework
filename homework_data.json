@@ -139,5 +139,18 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795099687400",
+    "subject": "Scienze",
+    "givenDate": "2026-11-19",
+    "dueDate": "2026-11-23",
+    "tasks": [
+      {
+        "id": "task-1795099687399-so6p",
+        "text": "Fare eserimento pressione idrostatica",
+        "completed": false
+      }
+    ]
   }
 ]
