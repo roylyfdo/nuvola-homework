@@ -100,7 +100,7 @@
       {
         "id": "task-1795099610982-229b",
         "text": "pg. 119 pg. 120 es 1-2-3-4 pg. 121",
-        "completed": false
+        "completed": true
       }
     ]
   },
@@ -131,7 +131,7 @@
       {
         "id": "task-1795099933751-5api",
         "text": "il CHE. ES LIBRO BLU PAG 53 N 1,3.",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1795099933751-xjdu",
