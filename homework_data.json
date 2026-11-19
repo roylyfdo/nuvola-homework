@@ -100,29 +100,6 @@
     ]
   },
   {
-    "id": "box-1795006129410",
-    "subject": "Musica",
-    "givenDate": "2026-11-18",
-    "dueDate": "2026-11-19",
-    "tasks": [
-      {
-        "id": "task-1795006129410-dd6i",
-        "text": "Per la verifica ripassare gli argomenti alle pag. R 69-71-73,",
-        "completed": true
-      },
-      {
-        "id": "task-1795006129410-ja4o",
-        "text": "R19-20-21-22",
-        "completed": true
-      },
-      {
-        "id": "task-1795006129410-g35b",
-        "text": "e R23-24",
-        "completed": true
-      }
-    ]
-  },
-  {
     "id": "box-1795099610982",
     "subject": "Matematica",
     "givenDate": "2026-11-19",
