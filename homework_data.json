@@ -13,9 +13,10 @@
       {
         "id": "task-1794927528861-fjkq",
         "text": "Seguendo le funzioni di Propp, scegli una fiaba a tuo piacere e sul quaderno descrivi le funzioni e i personaggi come spiegato in classe",
-        "completed": false
+        "completed": true
       }
-    ]
+    ],
+    "completedDate": null
   },
   {
     "id": "box-1794927473734",
