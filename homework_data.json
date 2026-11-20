@@ -46,7 +46,7 @@
       {
         "id": "task-1795006006111-ahdp",
         "text": "Studiaregli appunti e ripassare gi strumenti della geografia per interrogazione.",
-        "completed": true
+        "completed": false
       },
       {
         "id": "task-1795006006112-sted",
@@ -59,7 +59,7 @@
         "completed": true
       }
     ],
-    "completedDate": "2026-11-20"
+    "completedDate": null
   },
   {
     "id": "box-1795099687400",
