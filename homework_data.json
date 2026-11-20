@@ -84,7 +84,7 @@
       {
         "id": "task-1795099933749-jz05",
         "text": "STUDIA LE REGOLE SUL LIBRO E SUL QUADERNO, elisione e torncamento,",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1795099933751-5api",
@@ -96,6 +96,7 @@
         "text": "PAG 57 N 1,2,4.",
         "completed": true
       }
-    ]
+    ],
+    "completedDate": "2026-11-20"
   }
 ]
