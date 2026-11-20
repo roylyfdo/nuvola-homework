@@ -32,9 +32,10 @@
       {
         "id": "task-1794927473734-2s8u",
         "text": "Studiare pag.11, 14 e metà di 15 e ripassare da pag.1 per inizio interrogazioni.",
-        "completed": false
+        "completed": true
       }
-    ]
+    ],
+    "completedDate": "2026-11-20"
   },
   {
     "id": "box-1795006006113",
@@ -55,10 +56,9 @@
       {
         "id": "task-1795006006112-476p",
         "text": "Procurati della carta da lucido per la lezione",
-        "completed": true
+        "completed": false
       }
-    ],
-    "completedDate": null
+    ]
   },
   {
     "id": "box-1795099687400",
