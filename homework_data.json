@@ -70,10 +70,10 @@
       {
         "id": "task-1795099687399-so6p",
         "text": "Fare eserimento pressione idrostatica",
-        "completed": false
+        "completed": true
       }
     ],
-    "completedDate": null
+    "completedDate": "2026-11-20"
   },
   {
     "id": "box-1795099933751",
