@@ -8,7 +8,7 @@
       {
         "id": "task-1794927528857-lavt",
         "text": "Studiare le caratteristiche di fiaba e favola (appunti e fotocopia).",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1794927528861-fjkq",
@@ -16,7 +16,7 @@
         "completed": true
       }
     ],
-    "completedDate": null
+    "completedDate": "2026-11-20"
   },
   {
     "id": "box-1794927473734",
