@@ -56,9 +56,10 @@
       {
         "id": "task-1795006006112-476p",
         "text": "Procurati della carta da lucido per la lezione",
-        "completed": false
+        "completed": true
       }
-    ]
+    ],
+    "completedDate": null
   },
   {
     "id": "box-1795099687400",
