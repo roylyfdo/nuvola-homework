@@ -1,43 +1,5 @@
 [
   {
-    "id": "box-1794927424251",
-    "subject": "Italiano",
-    "givenDate": "2026-11-17",
-    "dueDate": "2026-11-24",
-    "tasks": [
-      {
-        "id": "task-1794927528857-lavt",
-        "text": "Studiare le caratteristiche di fiaba e favola (appunti e fotocopia).",
-        "completed": true
-      },
-      {
-        "id": "task-1794927528861-fjkq",
-        "text": "Seguendo le funzioni di Propp, scegli una fiaba a tuo piacere e sul quaderno descrivi le funzioni e i personaggi come spiegato in classe",
-        "completed": true
-      }
-    ],
-    "completedDate": "2026-11-20"
-  },
-  {
-    "id": "box-1794927473734",
-    "subject": "Tecnologia",
-    "givenDate": "2026-11-17",
-    "dueDate": "2026-11-24",
-    "tasks": [
-      {
-        "id": "task-1794927473734-thu4",
-        "text": "Eseguire moduli n. 4 e 5 pag.20 su classroom",
-        "completed": true
-      },
-      {
-        "id": "task-1794927473734-2s8u",
-        "text": "Studiare pag.11, 14 e metà di 15 e ripassare da pag.1 per inizio interrogazioni.",
-        "completed": true
-      }
-    ],
-    "completedDate": "2026-11-20"
-  },
-  {
     "id": "box-1795006006113",
     "subject": "Geografia",
     "givenDate": "2026-11-18",
@@ -60,43 +22,5 @@
       }
     ],
     "completedDate": null
-  },
-  {
-    "id": "box-1795099687400",
-    "subject": "Scienze",
-    "givenDate": "2026-11-19",
-    "dueDate": "2026-11-23",
-    "tasks": [
-      {
-        "id": "task-1795099687399-so6p",
-        "text": "Fare eserimento pressione idrostatica",
-        "completed": true
-      }
-    ],
-    "completedDate": "2026-11-20"
-  },
-  {
-    "id": "box-1795099933751",
-    "subject": "Italiano",
-    "givenDate": "2026-11-19",
-    "dueDate": "2026-11-24",
-    "tasks": [
-      {
-        "id": "task-1795099933749-jz05",
-        "text": "STUDIA LE REGOLE SUL LIBRO E SUL QUADERNO, elisione e torncamento,",
-        "completed": true
-      },
-      {
-        "id": "task-1795099933751-5api",
-        "text": "il CHE. ES LIBRO BLU PAG 53 N 1,3.",
-        "completed": true
-      },
-      {
-        "id": "task-1795099933751-xjdu",
-        "text": "PAG 57 N 1,2,4.",
-        "completed": true
-      }
-    ],
-    "completedDate": "2026-11-20"
   }
 ]
