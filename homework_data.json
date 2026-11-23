@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": "box-1795423220572",
+    "subject": "Inglese",
+    "givenDate": "2026-11-23",
+    "dueDate": "2026-11-25",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795423220570-1jq2",
+        "text": "Copia i numeri dell'es. 1 di pag. 44 e le domande e risposte sotto l'es. 2 (compresa le frasi scritte alla lavagna) in Functions.",
+        "completed": false
+      },
+      {
+        "id": "task-1795423220572-q0y6",
+        "text": "Fai es. 1, 3 e 4 pag. 186. Studia i numeri ordinali.",
+        "completed": false
+      }
+    ]
+  }
+]
