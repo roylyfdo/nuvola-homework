@@ -23,12 +23,12 @@
     "subject": "Storia",
     "givenDate": "2026-11-23",
     "dueDate": "2026-11-30",
-    "completedDate": null,
+    "completedDate": "2026-11-23",
     "tasks": [
       {
         "id": "task-1795436753167-geoj",
         "text": "Studia gli appunti,",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1795436753167-n1de",
