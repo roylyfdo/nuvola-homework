@@ -4,7 +4,7 @@
     "subject": "Inglese",
     "givenDate": "2026-11-23",
     "dueDate": "2026-11-25",
-    "completedDate": null,
+    "completedDate": "2026-11-23",
     "tasks": [
       {
         "id": "task-1795423220570-1jq2",
@@ -14,7 +14,7 @@
       {
         "id": "task-1795423220572-q0y6",
         "text": "Fai es. 1, 3 e 4 pag. 186. Studia i numeri ordinali.",
-        "completed": false
+        "completed": true
       }
     ]
   },
