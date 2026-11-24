@@ -4,7 +4,7 @@
     "subject": "Italiano",
     "givenDate": "2026-11-24",
     "dueDate": "2026-11-26",
-    "completedDate": null,
+    "completedDate": "2026-11-24",
     "tasks": [
       {
         "id": "task-1795524487710-1s9s",
@@ -14,7 +14,7 @@
       {
         "id": "task-1795524487710-qzlr",
         "text": "1,2,4,pag 72",
-        "completed": false
+        "completed": true
       }
     ]
   },
