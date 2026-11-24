@@ -17,5 +17,19 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795524525277",
+    "subject": "Matematica",
+    "givenDate": "2026-11-24",
+    "dueDate": "2026-11-27",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795524525277-s0sw",
+        "text": "Geometria:pg. 112 es120-121-125-133-132",
+        "completed": false
+      }
+    ]
   }
 ]
