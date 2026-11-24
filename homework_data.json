@@ -23,12 +23,12 @@
     "subject": "Matematica",
     "givenDate": "2026-11-24",
     "dueDate": "2026-11-27",
-    "completedDate": null,
+    "completedDate": "2026-11-24",
     "tasks": [
       {
         "id": "task-1795524525277-s0sw",
         "text": "Geometria:pg. 112 es120-121-125-133-132",
-        "completed": false
+        "completed": true
       }
     ]
   },
@@ -52,7 +52,7 @@
       {
         "id": "task-1795524600639-n0qr",
         "text": "rispondi sul libro es pag 145 dal n 1 al n7",
-        "completed": false
+        "completed": true
       }
     ]
   },
