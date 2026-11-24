@@ -31,5 +31,29 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795524600639",
+    "subject": "Italiano",
+    "givenDate": "2026-11-24",
+    "dueDate": "2026-12-01",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795524600638-f61d",
+        "text": "Antologia> Ripassare fiaba e favola.",
+        "completed": false
+      },
+      {
+        "id": "task-1795524600639-6u78",
+        "text": "Lettura pag 144",
+        "completed": false
+      },
+      {
+        "id": "task-1795524600639-n0qr",
+        "text": "rispondi sul libro es pag 145 dal n 1 al n7",
+        "completed": false
+      }
+    ]
   }
 ]
