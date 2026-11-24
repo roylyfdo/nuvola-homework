@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": "box-1795524487710",
+    "subject": "Italiano",
+    "givenDate": "2026-11-24",
+    "dueDate": "2026-11-26",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795524487710-1s9s",
+        "text": "Pag 71 es n 5 libro blu,",
+        "completed": false
+      },
+      {
+        "id": "task-1795524487710-qzlr",
+        "text": "1,2,4,pag 72",
+        "completed": false
+      }
+    ]
+  }
+]
