@@ -55,5 +55,29 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795524693030",
+    "subject": "Tecnologia",
+    "givenDate": "2026-11-24",
+    "dueDate": "2026-12-01",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795524693030-tgzh",
+        "text": "Eseguire il modulo bicolore su classroom, triplicando i quadretti.",
+        "completed": false
+      },
+      {
+        "id": "task-1795524693030-hc6g",
+        "text": "Colorare i moduli siglati e continuare ad esercitarsi, in vista della verifica di martedì prossimo.",
+        "completed": false
+      },
+      {
+        "id": "task-1795524693030-vktf",
+        "text": "Portare fogli protocollo e matite colorate",
+        "completed": false
+      }
+    ]
   }
 ]
