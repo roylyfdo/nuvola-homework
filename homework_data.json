@@ -65,5 +65,19 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795609649644",
+    "subject": "Spagnolo",
+    "givenDate": "2026-11-25",
+    "dueDate": "2026-11-30",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795609649644-m57m",
+        "text": "Fare la pagina 43 del libro.",
+        "completed": false
+      }
+    ]
   }
 ]
