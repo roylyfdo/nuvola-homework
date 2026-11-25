@@ -7,19 +7,24 @@
     "completedDate": null,
     "tasks": [
       {
-        "id": "task-1795524600638-f61d",
+        "id": "task-1795609746495-rpt3",
         "text": "Antologia> Ripassare fiaba e favola.",
         "completed": false
       },
       {
-        "id": "task-1795524600639-6u78",
+        "id": "task-1795609746496-bcf5",
         "text": "Lettura pag 144",
-        "completed": true
+        "completed": false
       },
       {
-        "id": "task-1795524600639-n0qr",
+        "id": "task-1795609746497-dld4",
         "text": "rispondi sul libro es pag 145 dal n 1 al n7",
-        "completed": true
+        "completed": false
+      },
+      {
+        "id": "task-1795609746497-atnq",
+        "text": "Compito aggiuntivo per richiami multipli alla classe che disturba durante i cambi di orario urlando e schiamazzando in modo insostenibile> Pag 132/133 leggi e schematizza le informazioni sul quaderno fino a Fedro compreso",
+        "completed": false
       }
     ]
   },
