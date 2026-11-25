@@ -84,5 +84,34 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795609928885",
+    "subject": "Geografia",
+    "givenDate": "2026-11-25",
+    "dueDate": "2026-12-02",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795609928883-vnbx",
+        "text": "Concludi il lucido secondo le indicazioni, coloralo con le matite no pennarelli.",
+        "completed": false
+      },
+      {
+        "id": "task-1795609928885-yq6r",
+        "text": "Sul quaderno confronta in un ELENCO la tua carta mentale con il lucido considerando: Le proporzioni, il nome degli stati e i relativi punti cardinali…",
+        "completed": false
+      },
+      {
+        "id": "task-1795609928885-bgs3",
+        "text": "Studiare pagg 50,51,",
+        "completed": false
+      },
+      {
+        "id": "task-1795609928885-cul0",
+        "text": "anche il linguaggio specifico appuntato e spiegato",
+        "completed": false
+      }
+    ]
   }
 ]
