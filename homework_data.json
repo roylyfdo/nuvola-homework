@@ -46,5 +46,24 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795609601849",
+    "subject": "Inglese",
+    "givenDate": "2026-11-25",
+    "dueDate": "2026-11-27",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795609601849-k0z4",
+        "text": "Fai la stessa intervista di pag. 45 con domande e risposte a un tuo amico o familiare. Ad esempio: What's your name? My name is Roberto. Ecc.",
+        "completed": false
+      },
+      {
+        "id": "task-1795609601849-wds7",
+        "text": "Se non hai finito il lavoro dell'intervista in classe concludilo a casa.",
+        "completed": false
+      }
+    ]
   }
 ]
