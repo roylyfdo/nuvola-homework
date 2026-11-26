@@ -132,7 +132,6 @@
       font-size: 0.85rem;
     }
 
-    /* Homework Cards & Urgency Borders */
     .homework-card {
       background: var(--card-bg);
       border-radius: 16px;
@@ -177,7 +176,6 @@
     .status-completed { background: var(--success-light); color: #047857; }
     .badge-count { background: #f1f5f9; color: #334155; }
 
-    /* Urgency Badges */
     .badge-urgency-red { background: var(--danger-light); color: #b91c1c; }
     .badge-urgency-yellow { background: var(--warning-light); color: #b45309; }
     .badge-urgency-green { background: var(--success-light); color: #047857; }
@@ -368,6 +366,17 @@
     return `${yyyy}-${mm}-${dd}`;
   }
 
+  function isBoxComplete(box) {
+    return Array.isArray(box.tasks) && box.tasks.length > 0 && box.tasks.every(t => t.completed);
+  }
+
+  // Exclude completed boxes' sub-tasks from stats after midnight of the day they were completed
+  function shouldCountInStats(box, todayStr) {
+    if (!isBoxComplete(box)) return true;
+    if (!box.completedDate) return true;
+    return box.completedDate >= todayStr;
+  }
+
   function toggleParentView() {
     isParentMode = !isParentMode;
     document.getElementById('parentPanel').style.display = isParentMode ? 'block' : 'none';
@@ -481,8 +490,7 @@
       const task = box.tasks.find(t => t.id === taskId);
       if (task) {
         task.completed = !task.completed;
-        const allDone = box.tasks.length > 0 && box.tasks.every(t => t.completed);
-        box.completedDate = allDone ? getTodayLocalStr() : null;
+        box.completedDate = isBoxComplete(box) ? getTodayLocalStr() : null;
         saveAndSync();
       }
     }
@@ -495,24 +503,20 @@
     }
   }
 
-  // Delete cards that were completed on a previous calendar day (after 00:00 midnight)
+  // Delete completed cards at midnight after the day before dueDate (i.e. once dueDate <= today)
   function cleanupExpiredCompleted() {
     const today = getTodayLocalStr();
     let changed = false;
 
     homeworkData = homeworkData.filter(box => {
-      const isComplete = box.tasks && box.tasks.length > 0 && box.tasks.every(t => t.completed);
-      if (!isComplete) return true;
+      if (!isBoxComplete(box)) return true;
 
-      // Backfill completedDate if an older completed card didn't have one yet
       if (!box.completedDate) {
         box.completedDate = today;
         changed = true;
-        return true;
       }
 
-      // If completed before today (midnight has passed), remove it
-      if (box.completedDate < today) {
+      if (box.dueDate && box.dueDate <= today) {
         changed = true;
         return false;
       }
@@ -575,12 +579,13 @@
     populateSubjectFilter();
     const filterSub = document.getElementById('filterSubject').value;
     const filterDue = document.getElementById('filterDueDate').value;
+    const todayStr = getTodayLocalStr();
 
-    // Sub-task totals across all cards
     let totalSubTasks = 0;
     let completedSubTasks = 0;
 
     homeworkData.forEach(box => {
+      if (!shouldCountInStats(box, todayStr)) return;
       (box.tasks || []).forEach(t => {
         totalSubTasks++;
         if (t.completed) completedSubTasks++;
@@ -604,7 +609,6 @@
       return true;
     });
 
-    // Sorting: Uncompleted / halfway boxes stay on top by due date, completed boxes drop to bottom
     filtered.sort((a, b) => {
       const stA = getBoxStatus(a);
       const stB = getBoxStatus(b);
@@ -717,10 +721,11 @@
     } catch(e) {}
   }
 
-  // Re-check midnight expiration if page stays open across 00:00
   setInterval(() => {
     if (cleanupExpiredCompleted()) {
       saveAndSync();
+    } else {
+      renderApp();
     }
   }, 60000);
 
