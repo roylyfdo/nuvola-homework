@@ -90,19 +90,5 @@
         "completed": true
       }
     ]
-  },
-  {
-    "id": "box-1795696318915",
-    "subject": "Matematica",
-    "givenDate": "2026-11-26",
-    "dueDate": "2026-11-27",
-    "completedDate": "2026-11-26",
-    "tasks": [
-      {
-        "id": "task-1795696343768-ys23",
-        "text": "Aritmetica:ripassare per la verifica ed eseguire es n. 145-184-186-198-202 delle schede allegate Data consegna: 27 novembre 2026",
-        "completed": true
-      }
-    ]
   }
 ]
