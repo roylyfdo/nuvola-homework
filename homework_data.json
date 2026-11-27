@@ -90,5 +90,24 @@
         "completed": true
       }
     ]
+  },
+  {
+    "id": "box-1795775977951",
+    "subject": "Inglese",
+    "givenDate": "2026-11-27",
+    "dueDate": "2026-11-30",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795775977951-two0",
+        "text": "Ascolta e leggi ad alta voce (traducendo oralmente) il brano di pag. 46",
+        "completed": false
+      },
+      {
+        "id": "task-1795775977951-4szr",
+        "text": "fai es. 1 e 2 + es. 3 e 4 di pag.47.",
+        "completed": false
+      }
+    ]
   }
 ]
