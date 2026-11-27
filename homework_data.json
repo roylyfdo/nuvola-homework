@@ -4,7 +4,7 @@
     "subject": "Italiano",
     "givenDate": "2026-11-24",
     "dueDate": "2026-12-01",
-    "completedDate": null,
+    "completedDate": "2026-11-27",
     "tasks": [
       {
         "id": "task-1795696433082-fo1n",
@@ -24,7 +24,7 @@
       {
         "id": "task-1795696433082-kmy8",
         "text": "Compito aggiuntivo per richiami multipli alla classe che disturba durante i cambi di orario urlando e schiamazzando in modo insostenibile> Pag 132/133 leggi e schematizza le informazioni sul quaderno fino a Fedro compreso",
-        "completed": false
+        "completed": true
       },
       {
         "id": "task-1795696433082-xsfq",
