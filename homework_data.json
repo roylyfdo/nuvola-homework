@@ -109,5 +109,19 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795776085074",
+    "subject": "Italiano",
+    "givenDate": "2026-11-27",
+    "dueDate": "2026-12-04",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795776085073-aecz",
+        "text": "Concludi il breve riassunto del cap 5 iniziato in classe dopo la lettura",
+        "completed": false
+      }
+    ]
   }
 ]
