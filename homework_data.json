@@ -114,5 +114,19 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "box-1795792044404",
+    "subject": "Matematica",
+    "givenDate": "2026-11-27",
+    "dueDate": "2026-12-01",
+    "completedDate": null,
+    "tasks": [
+      {
+        "id": "task-1795792044403-7wuq",
+        "text": "Geometria ripassare tutto sui segmenti eseguite la scheda allegata",
+        "completed": false
+      }
+    ]
   }
 ]
