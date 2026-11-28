@@ -134,12 +134,12 @@
     "subject": "Italiano",
     "givenDate": "2026-11-27",
     "dueDate": "2026-12-04",
-    "completedDate": null,
+    "completedDate": "2026-11-28",
     "tasks": [
       {
         "id": "task-1795792138483-z52b",
         "text": "Concludi il breve riassunto del cap 5 iniziato in classe dopo la lettura",
-        "completed": false
+        "completed": true
       }
     ]
   }
